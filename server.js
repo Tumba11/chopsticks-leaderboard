@@ -98,6 +98,7 @@ async function ensureSchema() {
       month CHAR(7) NOT NULL
     );
     CREATE INDEX IF NOT EXISTS scores_month_score ON scores (month, score DESC, played_at DESC);
+    DELETE FROM scores WHERE id IN ('mwgj523r-gxy2o4ue', 'mwgj51zc-si19ysfo');
   `).then(() => true).catch(err => { ready = null; throw err; });
   return ready;
 }
