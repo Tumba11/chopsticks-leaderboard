@@ -1,0 +1,27 @@
+# Free-tier monthly leaderboard for Chopsticks. Do not change these plans to paid.
+previews:
+  generation: off
+
+databases:
+  - name: chopsticks-leaderboard-db
+    plan: free
+    region: oregon
+    postgresMajorVersion: 16
+
+services:
+  - type: web
+    name: chopsticks-leaderboard
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: chopsticks-leaderboard-db
+          property: connectionString
+      - key: CORS_ORIGIN
+        value: https://catch-the-booster-390255.onrender.com
