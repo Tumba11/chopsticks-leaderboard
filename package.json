@@ -1,0 +1,17 @@
+{
+  "name": "chopsticks-leaderboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monthly worldwide leaderboard API for Chopsticks, an unofficial SpaceX fan game.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
